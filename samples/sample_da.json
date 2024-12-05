@@ -1,0 +1,28 @@
+{
+    "students": {
+      "student1": {
+        "preferences": ["school1", "school2", "school3"]
+      },
+      "student2": {
+        "preferences": ["school2", "school3", "school1"]
+      },
+      "student3": {
+        "preferences": ["school1", "school3", "school2"]
+      }
+    },
+    "schools": {
+      "school1": {
+        "preferences": ["student2", "student1", "student3"],
+        "capacity": 2
+      },
+      "school2": {
+        "preferences": ["student1", "student3", "student2"],
+        "capacity": 1
+      },
+      "school3": {
+        "preferences": ["student3", "student1", "student2"],
+        "capacity": 1
+      }
+    }
+}
+  
