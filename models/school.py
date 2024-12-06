@@ -18,5 +18,12 @@ class School:
             return rejected_student
         return None
     
+    def give_seat(self, student):
+        """空きがある場合に生徒に席を渡す"""
+        if len(self.current_matches) < self.capacity:
+            self.current_matches.append(student)
+            return True
+        return False
+    
     def __repr__(self):
         return f"School({self.name})"
