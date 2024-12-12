@@ -4,10 +4,7 @@ class School:
         self.preferences = preferences
         self.capacity = capacity
         self.current_matches = []
-
-    def prefers(self, student1, student2):
-        """2人の生徒を比較し、どちらを優先するかを返す"""
-        return self.preferences.index(student1.name) < self.preferences.index(student2.name)
+        self.temp_matches = []
 
     def accept_proposal(self, student):
         """提案を受け入れるかどうかを決定し、現在のマッチを更新する"""
@@ -25,5 +22,15 @@ class School:
             return True
         return False
     
+    def select_to_q(self):
+        """定員まで仮マッチから本マッチに移す"""
+        remain_seats = self.capacity - len(self.current_matches)
+        self.temp_matches.sort(key=lambda s: self.preferences.index(s.name))
+        self.current_matches.extend(self.temp_matches[:remain_seats])
+        rejected_students = self.temp_matches[remain_seats:]
+        self.temp_matches.clear()
+        return rejected_students
+        
+                                   
     def __repr__(self):
         return f"School({self.name})"

@@ -6,7 +6,7 @@ class Student:
         self.matched_school = None
 
     def propose(self) -> str:
-        """断られていない学校があれば、その中で一番好きな学校に提案する"""
+        """断られていない学校があれば、その中で一番好きな学校（前のプロポーズより一つ後の学校）に提案する"""
         if self.current_proposal_index < len(self.preferences):
             school_name = self.preferences[self.current_proposal_index]
             self.current_proposal_index += 1
